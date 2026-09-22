@@ -11,7 +11,7 @@
 
 **wpwpage** est ...
 
-Usage:
+Usage (après `nimble build`):
 ```
 ./wpwpage [file.htm]
 ./wpwpage → file,htm = wpwpage.htm
