@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fond d'écran HTML</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 20%, #2c5364, #0f2027 70%);
+    font-family: "Segoe UI", sans-serif;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+  #clock {
+    position: absolute; bottom: 470px; left: 50px;
+    color: rgba(255,255,255,0.9);
+    font-size: 64px;
+    font-weight: 200;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+  #date {
+      color: rgba(255,255,255,0.6);
+      font-size: 20px;
+      margin-top: 4px;
+      margin-left: 50px;
+  }
+  .particle {
+    position: absolute; border-radius: 50%; background: rgba(255,255,255,0.5);
+    animation: float linear infinite;
+  }
+  @keyframes float {
+    from { transform: translateY(0); opacity: 0; }
+    10%  { opacity: 1; }
+    to   { transform: translateY(-100vh); opacity: 0; }
+  }
+  #logo {
+    position: absolute; top: 440px; left: 50px;
+    font-family: "Lucida Console", "Menlo", "Monaco", "Courier New", monospace;
+    color: rgba(255,255,255,0.6); font-size: 20px }
+  }
+  #menu {
+    position: fixed;
+    right: 30px;
+    min-width: 200px;
+    padding: 6px;
+    background: rgba(20, 30, 40, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+  }
+  #menu .item {
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.7);
+  }
+  #menu .item:hover {
+    background: rgba(255,255,255,0.12);
+  }
+  #menu .sep {
+    height: 1px;
+    margin: 6px 4px;
+    background: rgba(255,255,255,0.15);
+  }
+</style>
+</head>
+<body>
+  <div id="clock">--:--</div>
+  <div id="date"></div>
+  <div id="logo">--:--</div>
+  <div id="menu"></div>
+  <script>
+    // Logo
+    document.getElementById('logo').innerHTML = window.atob("Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7XyZuYnNwO18mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDtfXyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOzxicj4mbmJzcDtfX18mbmJzcDsmbmJzcDtfX18mbmJzcDsmbmJzcDtfJm5ic3A7X18mbmJzcDsmbmJzcDsmbmJzcDtfXyZuYnNwO198Jm5ic3A7KF8pXyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwO19fX18mbmJzcDtfJm5ic3A7XyZuYnNwO19fJm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7LyZuYnNwO198XyZuYnNwO19fJm5ic3A7PGJyPi8mbmJzcDtfX3wvJm5ic3A7XyZuYnNwO1x8Jm5ic3A7J18mbmJzcDtcJm5ic3A7LyZuYnNwO19gJm5ic3A7fCZuYnNwO3wmbmJzcDtcJm5ic3A7XCZuYnNwOy9cJm5ic3A7LyZuYnNwOy8mbmJzcDtfYCZuYnNwO3wmbmJzcDsnXyZuYnNwO1wmbmJzcDsmbmJzcDt8Jm5ic3A7fF98Jm5ic3A7J19ffDxicj5cX18mbmJzcDtcJm5ic3A7KF8pJm5ic3A7fCZuYnNwO3wmbmJzcDt8Jm5ic3A7fCZuYnNwOyhffCZuYnNwO3wmbmJzcDt8Jm5ic3A7fFwmbmJzcDtWJm5ic3A7Jm5ic3A7ViZuYnNwOy8mbmJzcDsoX3wmbmJzcDt8Jm5ic3A7fCZuYnNwO3wmbmJzcDt8X3wmbmJzcDsmbmJzcDtffCZuYnNwO3wmbmJzcDsmbmJzcDsmbmJzcDs8YnI+fF9fXy9cX19fL3xffCZuYnNwO3xffFxfXyxffF98X3wmbmJzcDtcXy9cXy8mbmJzcDtcX18sX3xffCZuYnNwO3xfKF8pX3wmbmJzcDt8X3wmbmJzcDsmbmJzcDsmbmJzcDs8YnI+");
+
+    // Clock
+    function tick() {
+      const lang = navigator.language || navigator.userLanguage;
+      const now = new Date();
+      document.getElementById('clock').textContent =
+        now.toLocaleTimeString(lang, {hour: '2-digit', minute: '2-digit'});
+      document.getElementById('date').textContent =
+        now.toLocaleDateString(lang, {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'});
+    }
+
+    // Particles
+    tick();
+    setInterval(tick, 1000);
+    function spawnParticle() {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = 2 + Math.random() * 3;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.bottom = '0';
+      p.style.animationDuration = (8 + Math.random() * 10) + 's';
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 20000);
+    }
+    let particlesEnabled = true;
+    let particleTimer = setInterval(spawnParticle, 400);
+
+    // Color
+    const bgColors = [
+      'radial-gradient(circle at 30% 20%, #2c5364, #0f2027 70%)',
+      'radial-gradient(circle at 30% 20%, #654ea3, #2b0a52 70%)',
+      'radial-gradient(circle at 30% 20%, #ff6a00, #401b0f 70%)',
+      'radial-gradient(circle at 30% 20%, #11998e, #052b26 70%)',
+      'radial-gradient(circle at 30% 20%, #c31432, #240b36 70%)'
+    ];
+
+    // Menu
+    let bgIndex = 0;
+
+    const menuConfig = [
+      { "title": "🐚 Open a terminal", "action": "run-shell" },
+      { "separator": true },
+      { "title": "🕒 Clock: show/hide", "action": "toggle-clock" },
+      { "title": "✨ Particules: on/off", "action": "toggle-particles" },
+      { "title": "🎨 Next background color", "action": "change-color" },
+      { "separator": true },
+      { "title": "🔄 Reload the page", "action": "reload" }
+    ];
+
+    const menuActions = {
+      'run-shell': async function() {
+        await window.runCmd("start C:/Cmdr/vendor/conemu-maximus5/ConEmu64.exe");
+      },
+      'toggle-clock': function () {
+        const clock = document.getElementById('clock');
+        const date = document.getElementById('date');
+        const visible = clock.style.display !== 'none';
+        clock.style.display = visible ? 'none' : 'block';
+        date.style.display = visible ? 'none' : 'block';
+      },
+      'toggle-particles': function () {
+        particlesEnabled = !particlesEnabled;
+        if (particlesEnabled) {
+          particleTimer = setInterval(spawnParticle, 400);
+        } else {
+          clearInterval(particleTimer);
+        }
+      },
+      'change-color': function () {
+        bgIndex = (bgIndex + 1) % bgColors.length;
+        document.body.style.background = bgColors[bgIndex];
+      },
+      'reload': function () {
+        location.reload();
+      },
+    };
+
+    const menu = document.getElementById('menu');
+    menu.style.display = 'none';
+
+    menuConfig.forEach(function (entry) {
+      if (entry.separator) {
+        const sep = document.createElement('div');
+        sep.className = 'sep';
+        menu.appendChild(sep);
+      } else {
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.dataset.action = entry.action;
+        item.textContent = entry.title;
+        menu.appendChild(item);
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      const item = e.target.closest('.item');
+      if (item && menu.contains(item)) {
+        const action = menuActions[item.dataset.action];
+        if (action) action();
+        menu.style.display = 'none';
+        return;
+      }
+    });
+
+    document.addEventListener('contextmenu', function (e) {
+      const item = e.target.closest('.item');
+      if (menu.contains(e.target)) return;
+      if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        return;
+      }
+
+      menu.style.margin = Math.trunc(window.innerHeight/2).toString()+'px 0px 0px '+(window.innerWidth-250).toString()+'px';
+      menu.style.transform = 'translateY(-50%)';
+      menu.style.display = 'block';
+    });
+
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+</html>
